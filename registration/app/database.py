@@ -1,4 +1,3 @@
-
 import sqlite3
 from contextlib import contextmanager
 sqlite_file_name = "school.db"
@@ -43,40 +42,72 @@ def add_student(name,age,email,country,id_number):
         connection.execute(
             'INSERT INTO students (name, age,email,country,id_number) VALUES (?,?,?,?,?)',
             (name,age,email,country,id_number),
-
         )
         connection.commit()
+
 def get_students():
     with get_db_connection() as connection:
         return connection.execute('SELECT * FROM students').fetchall()
 
-        
+def update_student(id_number, name, age, email, country):
+    with get_db_connection() as connection:
+        connection.execute(
+            'UPDATE students SET name = ?, age = ?, email = ?, country = ? WHERE id_number = ?',
+            (name, age, email, country, id_number)
+        )
+        connection.commit()
 
+def delete_student(id_number):
+    with get_db_connection() as connection:
+        connection.execute('DELETE FROM students WHERE id_number = ?', (id_number,))
+        connection.commit()
 
 def add_teacher(name,age,email,country,id_number):
     with get_db_connection() as connection:
         connection.execute(
             'INSERT INTO teachers (name, age,email,country,id_number) VALUES (?,?,?,?,?)',
             (name,age,email,country,id_number),
-
         )
         connection.commit()
+
 def get_teachers():
     with get_db_connection() as connection:
         return connection.execute('SELECT * FROM teachers').fetchall()
 
+def update_teacher(id_number, name, age, email, country):
+    with get_db_connection() as connection:
+        connection.execute(
+            'UPDATE teachers SET name = ?, age = ?, email = ?, country = ? WHERE id_number = ?',
+            (name, age, email, country, id_number)
+        )
+        connection.commit()
 
-        
+def delete_teacher(id_number):
+    with get_db_connection() as connection:
+        connection.execute('DELETE FROM teachers WHERE id_number = ?', (id_number,))
+        connection.commit()
+
 def add_course(name,department,description,is_online,credit_hours):
     with get_db_connection() as connection:
         connection.execute(
             'INSERT INTO courses (name, department,description,is_online,credit_hours) VALUES (?,?,?,?,?)',
             (name,department,description,is_online,credit_hours),
-        
-
         )
         connection.commit()
+
 def get_courses():
     with get_db_connection() as connection:
         return connection.execute('SELECT * FROM courses').fetchall()
 
+def update_course(name, department, description, is_online, credit_hours):
+    with get_db_connection() as connection:
+        connection.execute(
+            'UPDATE courses SET department = ?, description = ?, is_online = ?, credit_hours = ? WHERE name = ?',
+            (department, description, is_online, credit_hours, name)
+        )
+        connection.commit()
+
+def delete_course(name):
+    with get_db_connection() as connection:
+        connection.execute('DELETE FROM courses WHERE name = ?', (name,))
+        connection.commit()

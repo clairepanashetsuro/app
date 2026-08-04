@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from repositories.customer import customer_repository
-from schemas.customer import CustomerCreate, CustomerUpdate
+from app.repositories.customer import customer_repository
+from app.schemas.customer import CustomerCreate, CustomerUpdate
 
 class CustomerService:
     def list_customers(self, db: Session):

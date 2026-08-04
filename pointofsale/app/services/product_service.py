@@ -1,8 +1,8 @@
 
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from repositories.product import product_repository
-from schemas.product import ProductCreate, ProductUpdate
+from app.repositories.product import product_repository
+from app.schemas.product import ProductCreate, ProductUpdate
 
 def list_product(db: Session):
     """Retrieves all products from the data repository."""

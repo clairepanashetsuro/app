@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from repositories.users import user_repository
-from schemas.users import UserCreate, UserUpdate
+from app.repositories.users import user_repository
+from app.schemas.users import UserCreate, UserUpdate
 import hashlib
 
 class UserService:

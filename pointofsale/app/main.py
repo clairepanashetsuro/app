@@ -1,14 +1,14 @@
 
 from fastapi import FastAPI
 from sqlalchemy import text
-from database import engine, Base, SessionLocal
 from datetime import datetime
+from app.database import Base, SessionLocal, engine
 
-from models.category import Category 
-from models.users import User
-from models.customer import Customer
+from app.models.category import Category 
+from app.models.users import User
+from app.models.customer import Customer
 
-from routers import (
+from app.routers import (
     products, 
     customer as customer_router,
     user, 

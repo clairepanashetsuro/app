@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey  # type: ignore
 from sqlalchemy.orm import relationship  # type: ignore
-from database import Base 
+from app.database import Base 
 
 class Category(Base):
     __tablename__ = "categories"

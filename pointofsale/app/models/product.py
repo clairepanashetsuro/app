@@ -10,7 +10,7 @@ from sqlalchemy import(
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
-from app.database import Base #defining the connection
+from database import Base #defining the connection
 class Product(Base):
     __tablename__ = "products"
 

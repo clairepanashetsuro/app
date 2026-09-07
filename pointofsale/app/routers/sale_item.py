@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status
 from app.schemas.sale_item import SaleItemCreate, SaleItemRead, SaleItemUpdate
 from app.services.sale_items import sale_item_service
-from app.database import get_db
+from database import get_db
 
 router = APIRouter(prefix="/sale-items", tags=["sale-items"])
 

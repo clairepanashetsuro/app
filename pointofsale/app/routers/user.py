@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status, HTTPException
 from app.schemas.users import UserCreate, UserRead, UserUpdate
 from app.services.users import user_service
-from app.database import get_db
+from database import get_db
 
 router = APIRouter(prefix="/users", tags=["users"])
 

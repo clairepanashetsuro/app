@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status, HTTPException
 from app.schemas.sales import SaleCreate, SaleRead, SaleUpdate
 from app.services.sales import sales_service
-from app.database import get_db
+from database import get_db
 import traceback
 
 router = APIRouter(prefix="/sales", tags=["sales"])
